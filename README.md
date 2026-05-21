@@ -1,4 +1,3 @@
-# email-automation-pipeline
 # Email Automation Pipeline — Google Apps Script
 
 > Automated email extraction, filtering, and documentation system built with Google Apps Script.
