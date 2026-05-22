@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h2>Forward Emails</h2>
+    <form>
+      <label for="emailBody">Email Body:</label><br>
+      <textarea id="emailBody" name="emailBody" rows="10" cols="30"></textarea><br><br>
+      <input type="button" value="Forward all emails" onclick="forwardEmails()">
+    </form>
+    <script>
+      function forwardEmails() {
+        var emailBody = document.getElementById('emailBody').value;
+        google.script.run.withSuccessHandler(function() {
+          alert('Emails forwarded successfully.');
+        }).withFailureHandler(function(error) {
+          alert('Error: ' + error.message);
+        }).forwardAllEmails(emailBody);
+      }
+    </script>
+  </body>
+</html>
