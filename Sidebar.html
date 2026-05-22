@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h2>Email Extractor</h2>
+    <form>
+      <label for="startDate">Start Date:</label><br>
+      <input type="date" id="startDate" name="startDate"><br>
+      <label for="endDate">End Date:</label><br>
+      <input type="date" id="endDate" name="endDate"><br>
+      <label for="labelName">Label:</label><br>
+      <input type="text" id="labelName" name="labelName"><br>
+      <label for="sender">Sender:</label><br>
+      <input type="text" id="sender" name="sender"><br>
+      <label for="recipients">Recipients:</label><br>
+      <input type="text" id="recipients" name="recipients"><br>
+      <label for="excludeSender">Exclude Sender:</label><br>
+      <input type="text" id="excludeSender" name="excludeSender"><br>
+      <label for="subjectLine">Subject Line:</label><br>
+      <input type="text" id="subjectLine" name="subjectLine"><br>
+      <label for="excludeLabel">Exclude Label:</label><br>
+      <input type="text" id="excludeLabel" name="excludeLabel"><br>
+      <label for="excludeRecipient">Exclude Recipient:</label><br>
+      <input type="text" id="excludeRecipient" name="excludeRecipient"><br><br>
+      <input type="button" value="Extract Emails" onclick="extractEmails()">
+    </form>
+    <script>
+      function extractEmails() {
+        var startDate = document.getElementById('startDate').value;
+        var endDate = document.getElementById('endDate').value;
+        var labelName = document.getElementById('labelName').value;
+        var sender = document.getElementById('sender').value;
+        var recipients = document.getElementById('recipients').value;
+        var excludeSender = document.getElementById('excludeSender').value;
+        var subjectLine = document.getElementById('subjectLine').value;
+        var excludeLabel = document.getElementById('excludeLabel').value;
+        var excludeRecipient = document.getElementById('excludeRecipient').value;
+        
+        google.script.run.extractEmailsToSheet(startDate, endDate, labelName, sender, recipients, excludeSender, subjectLine, excludeLabel, excludeRecipient);
+      }
+    </script>
+  </body>
+</html>
